@@ -1,68 +1,82 @@
-// Initialize variables
 var gamePattern = [];
 var buttonColours = ["red", "blue", "green", "yellow"];
 var userClickedPattern = [];
+var gameStarted = false; // Flag to track if the game has started
+var level = 0;
 
-// Event handler for keyboard input on PC/Desktop
-$(document).on("keydown", function(event) {
-    if (!gamePattern.length) { // Check if game hasn't started yet
+$(document).on("keydown", function(event){
+    if (!gameStarted) {
+        gameStarted = true; // Set gameStarted flag to true on first keydown
         nextSequence();
     }
 });
 
-// Event handler for button clicks on Mobile/Touchscreen
-$(".btn").on("click", function() {
-    var userChosenColour = $(this).attr("id");
-    playSound(userChosenColour);
-    userClickedPattern.push(userChosenColour);
-    animatePress(userChosenColour);
-    checkAnswer(userClickedPattern.length - 1);
-});
+function nextSequence(){
+    var randomNumber = Math.floor(Math.random() * 4); // Simplified random number generation
+    var randomChosenColour = buttonColours[randomNumber]; // Select random color from buttonColours array
 
-// Function to generate next sequence/color in the game
-function nextSequence() {
-    var randomNumber = Math.floor(Math.random() * 4); // Generate random number 0-3
-    var randomChosenColour = buttonColours[randomNumber]; // Select color from array
-    gamePattern.push(randomChosenColour); // Add to game pattern
-    $("#" + randomChosenColour).fadeOut(100).fadeIn(100); // Flash button
-    playSound(randomChosenColour); // Play corresponding sound
-    $("h1").text("Level " + gamePattern.length); // Update level title
+    // Add chosen color to game pattern
+    gamePattern.push(randomChosenColour);
+    console.log("Current game pattern:", gamePattern);
+
+    // Update level display
+    $("h1").text("Level " + (gamePattern.length));
+
+    // Show the current color in sequence
+    $("#" + randomChosenColour).fadeIn(100).fadeOut(100).fadeIn(100);
+    
+    // Play sound for the chosen color
+    playSound(randomChosenColour);
 }
 
-// Function to check user's answer against the game pattern
+$(".btn").on("click", function(){
+    var userChosenColour = $(this).attr("id"); // Get the id of the clicked button
+    playSound(userChosenColour); // Play sound for the clicked color
+    animatePress(userChosenColour); // Add pressed animation
+    userClickedPattern.push(userChosenColour); // Add clicked color to user pattern
+    checkAnswer(userClickedPattern.length - 1); // Check answer against game pattern
+});
+
 function checkAnswer(currentLevel) {
-    if (gamePattern[currentLevel] === userClickedPattern[currentLevel]) {
-        if (gamePattern.length === userClickedPattern.length) {
-            setTimeout(nextSequence, 1000); // Move to next level after correct sequence
-            userClickedPattern = []; // Clear user input pattern
+    if (gamePattern[currentLevel] === userClickedPattern[currentLevel]){
+        // If current level is correct, check if user completed entire pattern
+        if (userClickedPattern.length === gamePattern.length){
+            console.log("Success");
+            setTimeout(nextSequence,1000); // Move to next level after delay
+            userClickedPattern = []; // Clear user pattern for next round
         }
-    } else {
-        playSound("wrong"); // Play wrong sound
-        $("body").addClass("game-over"); // Flash red on mistake
-        setTimeout(function() {
+    }
+    else {
+        console.log("Wrong");
+        var audio = new Audio("sounds/wrong.mp3");
+        audio.play();
+        $("body").addClass("game-over");
+        setTimeout(function(){
             $("body").removeClass("game-over");
-        }, 200);
-        $("h1").text("Game Over! Press any key to restart."); // Game over message
-        startOver(); // Restart game
+        },200);
+        $("h1").text("Game Over! Press any key to continue...");
+        playAgain();
     }
 }
 
-// Function to play sound based on button color or event
-function playSound(name) {
+function playSound(name){
+    // Play audio based on color name
     var audio = new Audio("sounds/" + name + ".mp3");
     audio.play();
 }
 
-// Function to animate button press
-function animatePress(currentColour) {
+function animatePress(currentColour){
+    // Add pressed class and animation to clicked button
     $("#" + currentColour).addClass("pressed");
-    setTimeout(function() {
+    setTimeout(function(){
         $("#" + currentColour).removeClass("pressed");
     }, 100);
 }
 
-// Function to restart the game
-function startOver() {
+function playAgain(){
+    // Reset game patterns and level
     gamePattern = [];
     userClickedPattern = [];
+    level = 0;
+    gameStarted = false; // Reset gameStarted flag
 }
