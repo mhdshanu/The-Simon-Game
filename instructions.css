@@ -122,4 +122,36 @@ body {
       font-size: 0.8rem;
     }
   }
+
+  /* Reset default margin and padding for footer */
+footer {
+  text-align: center;
+  background-color: #011F3F;
+  color: #FEF2BF;
+  padding: 20px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 14px;
+}
+
+/* Style paragraph elements inside footer */
+footer p {
+  margin: 5px 0;
+}
+
+/* Style developer's name */
+.developer {
+  font-weight: bold;
+  color: #FFC107; /* Example color */
+}
+
+/* Hover effect for links or interactive elements in the footer */
+footer a:hover {
+  color: #FFC107; /* Example hover color */
+  text-decoration: underline; /* Underline on hover */
+}
+
   
