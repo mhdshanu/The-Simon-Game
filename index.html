@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Simon Game - Welcome</title>
+  <link rel="stylesheet" href="./start.css">
+  <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+</head>
+
+<body>
+  <div class="background-decoration"></div>
+  <h1 id="intro-title">Welcome to Simon Game</h1>
+  <div class="container">
+    <button id="instructions-button" class="btn instructions-button">Instructions</button>
+    <button id="start-button" class="btn start-button">Start Game</button>
+  </div>
+
+  <script>
+    document.getElementById("instructions-button").onclick = function () {
+      window.location.href = "instructions.html";
+    };
+    document.getElementById("start-button").onclick = function () {
+      window.location.href = "game.html";
+    };
+  </script>
+</body>
+
+</html>

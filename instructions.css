@@ -1,0 +1,125 @@
+body {
+    text-align: center;
+    background-color: #011F3F;
+    font-family: 'Press Start 2P', cursive;
+    color: #FEF2BF;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    position: relative;
+  }
+  
+  h1 {
+    font-size: 3rem;
+    margin: 5% auto;
+    color: #FEF2BF;
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    margin: auto;
+    animation: fadeIn 2s;
+  }
+  
+  p, ol {
+    text-align: left;
+    font-size: 1.2rem;
+    width: 70%;
+    margin: 10px auto;
+  }
+  
+  ol {
+    list-style: decimal;
+  }
+  
+  .button-container {
+    margin-top: 20px;
+  }
+  
+  .btn {
+    margin: 20px;
+    padding: 20px 40px;
+    font-size: 1.5rem;
+    border: 10px solid black;
+    border-radius: 20%;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    color: #011F3F;
+  }
+  
+  .btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  }
+  
+  .back-button {
+    background-color: #FF4C4C;
+    background: linear-gradient(145deg, #FF5959, #FF2626);
+  }
+  
+  .start-game-button {
+    background-color: #4CAF50;
+    background: linear-gradient(145deg, #5EC45E, #45B045);
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  .background-decoration {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300px;
+    height: 300px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    filter: blur(150px);
+    transform: translate(-50%, -50%);
+    z-index: -1;
+  }
+  
+  @media (max-width: 768px) {
+    .btn {
+      padding: 15px 30px;
+      font-size: 1.2rem;
+    }
+  
+    h1 {
+      font-size: 2rem;
+    }
+  
+    p, ol {
+      font-size: 1rem;
+      width: 90%;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .btn {
+      padding: 10px 20px;
+      font-size: 1rem;
+      margin: 15px;
+    }
+  
+    h1 {
+      font-size: 1.5rem;
+      margin: 10% auto;
+    }
+  
+    p, ol {
+      font-size: 0.8rem;
+    }
+  }
+  

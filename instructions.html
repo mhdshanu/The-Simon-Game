@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>Simon Game - Instructions</title>
+  <link rel="stylesheet" href="./instructions.css">
+  <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+</head>
+<body>
+  <div class="background-decoration"></div>
+  <h1 id="instructions-title">Instructions</h1>
+  <div class="container">
+    <p>Welcome to the Simon Game! Test your memory and have fun!</p>
+    <p>Follow these steps to play the game:</p>
+    <ol>
+      <li>Press any key to start the game.</li>
+      <li>Watch and listen to the pattern that appears.</li>
+      <li>Each round, a new color will be added to the pattern.</li>
+      <li>Click the buttons in the correct order to repeat the pattern.</li>
+      <li>If you click the wrong button, the game will end, and you'll have to start over.</li>
+      <li>Try to remember as many colors as you can!</li>
+    </ol>
+    <div class="button-container">
+      <button id="back-button" class="btn back-button">Back</button>
+      <button id="start-game-button" class="btn start-game-button">Start Game</button>
+    </div>
+  </div>
+  <script>
+    document.getElementById("back-button").onclick = function () {
+      window.location.href = "index.html";
+    };
+    document.getElementById("start-game-button").onclick = function () {
+      window.location.href = "game.html";
+    };
+  </script>
+</body>
+</html>
