@@ -1,3 +1,4 @@
+/* Reset styles and setup for the page */
 body {
   text-align: center;
   background-color: #011F3F;
@@ -5,25 +6,32 @@ body {
   color: #FEF2BF;
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: center;
 }
 
+/* Title styling */
 #level-title {
   font-size: 3rem;
   margin: 5% 0;
 }
 
+/* Container styling */
 .container {
   width: 80%;
   margin: auto;
 }
 
+/* Row styling for button layout */
 .row {
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
 }
 
+/* Button styling */
 .btn {
   margin: 10px;
   height: 150px;
@@ -62,4 +70,63 @@ body {
 .pressed {
   box-shadow: 0 0 20px white;
   background-color: grey;
+}
+
+/* Footer styling */
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #011F3F;
+  color: #FEF2BF;
+  text-align: center;
+  padding: 10px;
+  box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive design adjustments */
+@media (max-width: 1024px) {
+  #level-title {
+    font-size: 2.5rem;
+  }
+
+  .container {
+    width: 90%;
+  }
+
+  .btn {
+    height: 120px;
+    width: 120px;
+  }
+}
+
+@media (max-width: 768px) {
+  #level-title {
+    font-size: 2rem;
+  }
+
+  .container {
+    width: 95%;
+  }
+
+  .btn {
+    height: 100px;
+    width: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  #level-title {
+    font-size: 1.5rem;
+  }
+
+  .container {
+    width: 100%;
+    padding: 0 10px;
+  }
+
+  .btn {
+    height: 80px;
+    width: 80px;
+  }
 }

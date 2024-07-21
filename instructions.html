@@ -1,13 +1,125 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+
 <head>
   <meta charset="utf-8">
   <title>Simon Game - Instructions</title>
-  <link rel="stylesheet" href="./instructions.css">
   <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+  <style>
+    /* Reset styles and setup for the page */
+    body {
+      text-align: center;
+      background-color: #011F3F;
+      font-family: 'Press Start 2P', cursive;
+      color: #FEF2BF;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      justify-content: center;
+    }
+
+    #instructions-title {
+      font-size: 3rem;
+      margin: 5% 0;
+    }
+
+    .container {
+      width: 80%;
+      margin: auto;
+      text-align: left;
+    }
+
+    .container p, .container ol {
+      margin: 20px 0;
+    }
+
+    .button-container {
+      margin-top: 20px;
+    }
+
+    .btn {
+      margin: 10px;
+      height: 50px;
+      width: 150px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      background-color: #FFC107;
+      color: #011F3F;
+      font-size: 1.2rem;
+      transition: background-color 0.3s, transform 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #FFB300;
+      transform: translateY(-3px);
+    }
+
+    footer {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background-color: #011F3F;
+      color: #FEF2BF;
+      text-align: center;
+      padding: 10px;
+      box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.3);
+    }
+
+    @media (max-width: 1024px) {
+      #instructions-title {
+        font-size: 2.5rem;
+      }
+
+      .container {
+        width: 90%;
+      }
+
+      .btn {
+        height: 45px;
+        width: 140px;
+        font-size: 1rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      #instructions-title {
+        font-size: 2rem;
+      }
+
+      .container {
+        width: 95%;
+      }
+
+      .btn {
+        height: 40px;
+        width: 130px;
+        font-size: 0.9rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      #instructions-title {
+        font-size: 1.5rem;
+      }
+
+      .container {
+        width: 100%;
+        padding: 0 10px;
+      }
+
+      .btn {
+        height: 35px;
+        width: 120px;
+        font-size: 0.8rem;
+      }
+    }
+  </style>
 </head>
+
 <body>
-  <div class="background-decoration"></div>
   <h1 id="instructions-title">Instructions</h1>
   <div class="container">
     <p>Welcome to the Simon Game! Test your memory and have fun!</p>
@@ -25,6 +137,7 @@
       <button id="start-game-button" class="btn start-game-button">Start Game</button>
     </div>
   </div>
+
   <script>
     document.getElementById("back-button").onclick = function () {
       window.location.href = "index.html";
@@ -32,7 +145,12 @@
     document.getElementById("start-game-button").onclick = function () {
       window.location.href = "game.html";
     };
-    
   </script>
+
+  <footer>
+    <p>&copy; 2024 The Simon Game. All rights reserved.</p>
+    <p>Created with ❤️ by <span class="developer">Mohammed Shanu</span></p>
+  </footer>
 </body>
+
 </html>
