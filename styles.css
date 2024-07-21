@@ -39,7 +39,6 @@ body {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
-
 .red {
   background-color: #FF4C4C;
   background: linear-gradient(145deg, #FF5959, #FF2626);
@@ -64,7 +63,3 @@ body {
   box-shadow: 0 0 20px white;
   background-color: grey;
 }
-
-
-
-
